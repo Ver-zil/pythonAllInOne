@@ -2,7 +2,7 @@
 from DrissionPage import ChromiumPage, ChromiumOptions
 import time
 
-url = 'https://item.jd.com/100057734134.html#comment'
+url = 'https://item.jd.com/100078020146.html#comment'
 page_num = 90
 dp = ChromiumPage()
 dp.get(url)
@@ -19,7 +19,7 @@ product_valuation = {
 if model != "normal":
     dp.ele("css:[clstag='shangpin|keycount|product|" + model + "']").click()
 
-for i in range(page_num):
-    time.sleep(0.5)
-    dp.eles("css:.ui-pager-next")[product_valuation[model]].click()
-    print(i)
+# for i in range(page_num):
+#     time.sleep(0.5)
+#     dp.eles("css:.ui-pager-next")[product_valuation[model]].click()
+#     print(i)

@@ -9,15 +9,15 @@ import time
 import numpy as np
 
 is_proxy = 1
-init_stpt = 40000
-base_save_path = r'C:\Users\11435\Desktop\clutter\research\data\roommate\game'
+init_stpt = 37000
+base_save_path = r'C:\Users\11435\Desktop\clutter\research\data\roommate\game2'
 headers = {
     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
     "accept-language": "zh-CN,zh;q=0.9",
     "cache-control": "no-cache",
     "pragma": "no-cache",
     "priority": "u=0, i",
-    "referer": "https://steamdb.info/search/?a=all&q=",
+    "referer": "https://steamdb.info/",
     "sec-ch-ua": "\"Chromium\";v=\"130\", \"Google Chrome\";v=\"130\", \"Not?A_Brand\";v=\"99\"",
     "sec-ch-ua-arch": "\"x86\"",
     "sec-ch-ua-bitness": "\"64\"",
@@ -35,13 +35,12 @@ headers = {
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 }
 cookies = {
-    "__Host-steamdb": "0%3B7031751%3B7faaaad113e67bf4899284fca8cc84f4dec98a83",
-    "__cf_bm": "UDepGhBoMLR5KZ..TBl50pFdtYXiCdSvMAACCKvrIus-1730946649-1.0.1.1-TbQtKOPVkKPHEdi3X0ae9_A43nTcgiSf181Rg9p.aRp8B3WT0nwnjOBldPfUto7R2mDC_jtg9Eh2GPXg9fSaMw",
-    "cf_clearance": "7cjgPb0WRkosBwzph306qcFFfiL2Nz98_xRLxETiggQ-1730947437-1.2.1.1-tPD7ITC6zcnG5b4bmG9bQXdAOs4zKet1xfoc4pUI5V.xOvIgVs.SvNyT9ouHkM5iTnOYLfoEW3YVdl_ZTgyls_WXCRKtkLaTEbIaiXF650ZOweVBgV8WKDkBeFWxRi4Tzr6xWEu5AGKPdtXHUb79qX6fiMu7Ze.aHmFcuH79.eZj.P8FTrm9IQjatqMw0rZV.zRxGXyVcGqOSuVTFbGBXB4DfeL.AZVl.vjCnIreum7GKTrL92qahjsD5qZ96iknVZo92GL1UkP5B_xn7H96G6_D1cY6hfIULL72AsWW4J9jBEXcmFYcTRjsTn_9zz6z7k_KYWnLR5Cfso4sems2uLr_fRtPs22BdBuDowb0XLYk1BwxYePh7rXQuP8mXdvMgbH7oaN1gwe2abQvvspa6Nep15jcWQidGL1jDNzvrPpaw9T2lf3K3N5enqWzsevG"
+    "__cf_bm": "lNMOPbrujV_Y3poREPj7iye9mWFl8qnqALQWgQZtmMI-1731305234-1.0.1.1-sw8RDjXPYQeMP7dQSuFQbvh4kuvFc9uYYk96.RwNOw26oGm7.Ih2YPmIEUvMZDkZ6WXPZIS4MjxXG7HuBRMmIA",
+    "cf_clearance": "y6f2.m8hL5kHYszXBNPH.a4EqShxXTGrb0qR.UwRD48-1731305846-1.2.1.1-jQ1uqeK6oWvYcjyrrGcUsjGe.XiGt8abjD.C6lx5xFa_iLf43jXDFnP8jLNGQfl21UKZP8slESPTwTZlgpU3rMgYQgvImz6bm3OmxwUfb.ofv.5C3WNX94Huqw.AuKcEQ76SiCCRO9ahB1fojciuzK3Cro2JoM9zEBEmaF1eeo2C2JhrXPIde2gSeVWUthQEOAQfB2dYFl6Viu7.bf.vUnnBZV3dpomYaWfevS.FtYuQ7nvamLUYGjNVi8vd632qqkCDlD6gU7IomPTso1RT_.IMyfyb_CKcLJ7USsUYRw9IaNQU8JerzFkz2XpvzYhyVw7u8TXRrEjKBGwdExu0R4bxzjR3i.Y1X_DbBCxMSjHqqqmUrNNpJwdDJ2g3LfGqvHvUtRpuBgDCgLdSM4NPhaHPIlPWToG2zZhf19LFLdE"
 }
 strategy = {
-    'package_interval': 5,
-    'group_interval': 15,
+    'package_interval': 3,
+    'group_interval': 5,
     'round_interval': 12
 }
 
@@ -136,7 +135,7 @@ def sleep_with_progress_tqdm(duration, interval=1):
 
 
 start = get_latest_version(base_save_path)
-bkpt = 10000
+bkpt = 40000
 step = 10
 error_list = []
 with open('\\'.join([base_save_path, 'item_id.pkl']), 'rb') as f:

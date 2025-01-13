@@ -15,9 +15,9 @@ def get_review_infos(data):
     return review_infos
 
 
-base_save_path = r'C:\Users\11435\Desktop\clutter\research\data\topicModels\JD\headset'
+base_save_path = r'C:\Users\11435\Desktop\clutter\research\data\topicModels\JD\smart_phone'
 
-url = 'https://item.jd.com/100057734134.html#comment'
+url = 'https://item.jd.com/100148810780.html#comment'
 page_num = 10
 product_id = url.split('/')[-1].split('.')[0]
 dp = ChromiumPage()
@@ -29,9 +29,9 @@ review_info_list = {}
 
 # 0号位是index
 product_valuation = {
-    "haoping": [1, 90],
-    "zhongping": [2, 90],
-    "chaping": [3, 90]
+    "haoping": [1, 30],
+    "zhongping": [2, 10],
+    "chaping": [3, 30]
 }
 
 for k, v in product_valuation.items():
@@ -44,12 +44,19 @@ for k, v in product_valuation.items():
     #     continue
 
     for i in range(v[1]):
+        if (i + 1) % 30 == 0:
+            time.sleep(30)
         response = dp.listen.wait()
         json_data = response.response.body
         review_infos_ = review_infos_ + get_review_infos(json_data)
 
-        time.sleep(0.75)
-        dp.eles("css:.ui-pager-next")[v[0]].click()
+        time.sleep(5)
+        try:
+            dp.eles("css:.ui-pager-next")[v[0]].click()
+        except Exception as e:
+            user_input = input("是否解决问题[y/n]")
+            if user_input == 'y':
+                break
 
     review_info_list[k] = review_infos_
 
